@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# ./run.sh run
-# ./run.sh show
+# ./run.sh run_basic
+# ./run.sh show_basic
 # vscode extension prettier: ctrl + shift + i 
 
 # Basic.rs
