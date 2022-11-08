@@ -1,5 +1,5 @@
-// import fmt
-use std::fmt;
+// import fmt, using specified formatting trait
+use std::fmt::{ self, Formatter };
 
 // Derive the `fmt::Debug` implementation for Structure.
 // `Structure` is a structure which contains a single `i32`
@@ -55,6 +55,45 @@ impl fmt::Display for Point2D {
     }
 }
 
+// Define structure city
+
+struct City {
+    name: &'static str,
+    // Latitude
+    lat: f32,
+    // Longitude
+    lon: f32,
+}
+
+// implement display for City
+impl fmt::Display for City {
+    fn fmt(&self, f: &mut Formatter) -> fmt::Result {
+        let lat_c = if self.lat >= 0.0 { 'N' } else { 'S' };
+        let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
+
+        // write! is like println!, but it will write the formatter
+        // string into a buffer (the first argument)
+        write!(
+            f,
+            "{}: {:.3}c {} {:.3}c {}",
+            self.name,
+            self.lat.abs(),
+            lat_c,
+            self.lon.abs(),
+            lon_c
+        )
+    }
+}
+
+// Define struct Color as debug display
+#[allow(dead_code)]
+#[derive(Debug)]
+struct Color {
+    red: u8,
+    green: u8,
+    blue: u8,
+}
+
 fn main() {
     // Print debug with {:?}
     println!("{:?} months of the year", 12);
@@ -76,4 +115,23 @@ fn main() {
     println!("Compare points:");
     println!("Display: {}", point);
     println!("Display debug: {:?}", point);
+
+    // call City
+    for city in [
+        City { name: "Dublin", lat: 53.347778, lon: -6.259722 },
+        City { name: "Oslo", lat: 59.95, lon: 10.75 },
+        City { name: "Vancover", lat: 49.25, lon: -123.1 },
+    ].iter() {
+        println!("{}", *city);
+    }
+
+    // call Color
+    for color in [
+        Color { red: 128, green: 255, blue: 90 },
+        Color { red: 0, green: 3, blue: 254 },
+        Color { red: 0, green: 0, blue: 0 },
+    ].iter() {
+        // :? for debug
+        println!("{:?}", *color);
+    }
 }

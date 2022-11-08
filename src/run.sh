@@ -14,13 +14,13 @@ show_basic(){
 
 # this will change with the manually test files
 run(){
- # rustc debug.rs
- rustc list.rs
+  rustc debug.rs
+ # rustc list.rs
 }
 
 show(){
-    # ./debug
-    ./list
+     ./debug
+    # ./list
 }
 
 fmt(){
