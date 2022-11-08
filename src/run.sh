@@ -14,13 +14,22 @@ show_basic(){
 
 # this will change with the manually test files
 run(){
-  rustc debug.rs
+ # rustc debug.rs
  # rustc list.rs
+ # rustc primitives.rs
+ # rustc tuples.rs
+ # rustc array.rs
+ rustc custom_enum_types.rs
+
 }
 
 show(){
-     ./debug
+    # ./debug
     # ./list
+    # ./primitives
+    # ./tuples
+    # ./array
+    ./custom_enum_types
 }
 
 fmt(){
