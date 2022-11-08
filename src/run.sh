@@ -12,13 +12,15 @@ show_basic(){
     ./basic
 }
 
-# Debug.rs
-run_debug(){
- rustc debug.rs
+# this will change with the manually test files
+run(){
+ # rustc debug.rs
+ rustc list.rs
 }
 
-show_debug(){
-    ./debug
+show(){
+    # ./debug
+    ./list
 }
 
 fmt(){
@@ -32,11 +34,11 @@ run_basic)
 show_basic)
  show_basic
  ;;
-run_debug) 
- run_debug
+run) 
+ run
  ;;
-show_debug)
- show_debug
+show)
+ show
  ;;
 fmt)
  fmt
