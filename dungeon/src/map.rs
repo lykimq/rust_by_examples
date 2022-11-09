@@ -23,6 +23,7 @@ pub fn map_idx(x: i32, y: i32) -> usize {
     (y * SCREEN_WIDTH + x) as usize
 }
 
+#[allow(dead_code)]
 /* Define a constructor for the Map type */
 impl Map {
     // New map
@@ -53,5 +54,25 @@ impl Map {
                 }
             }
         }
+    }
+
+    /* Add in_bounds function to be sure that player will not be 
+   out of bounds */
+    pub fn in_bounds(&self, point: Point) -> bool {
+        point.x >= 0 && point.x < SCREEN_WIDTH && point.y >= 0 && point.y < SCREEN_HEIGHT
+    }
+
+    /* Add function to determine player can enter a tile */
+    pub fn can_enter_tile(&self, point: Point) -> bool {
+        // use in_bounds to be sure that players is in bounds
+        // and the destination of the tile is floor
+        self.in_bounds(point) && self.tiles[map_idx(point.x, point.y)] == TileType::Floor
+    }
+
+    /* try_idx determines a tile's index coordinates, and indicate an error
+      condition if the requested coordinates fall outside of the map boundaries */
+
+    pub fn try_idx(&self, point: Point) -> Option<usize> {
+        if !self.in_bounds(point) { None } else { Some(map_idx(point.x, point.y)) }
     }
 }
