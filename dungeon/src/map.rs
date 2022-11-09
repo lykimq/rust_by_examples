@@ -33,8 +33,7 @@ impl Map {
         Self { tiles: vec!(TileType::Floor; NUM_TILES) }
     }
 
-    /* Render the map purposes to make the map able 
-   to draw itself to the screen */
+    /* Render the map purposes to make the map able to draw itself to the screen */
     pub fn render(&self, ctx: &mut BTerm) {
         // iterating y first is faster due to memory cache usage
         for y in 0..SCREEN_HEIGHT {
@@ -43,8 +42,7 @@ impl Map {
                 // determine tile type
                 match self.tiles[idx] {
                     TileType::Floor => {
-                        // Call set to render each map tile.
-                        // Floor appear as `.` in yellow
+                        /* Call set to render each map tile. Floor appear as `.` in yellow */
                         ctx.set(x, y, YELLOW, BLACK, to_cp437('.'));
                     }
                     TileType::Wall => {
@@ -71,7 +69,6 @@ impl Map {
 
     /* try_idx determines a tile's index coordinates, and indicate an error
       condition if the requested coordinates fall outside of the map boundaries */
-
     pub fn try_idx(&self, point: Point) -> Option<usize> {
         if !self.in_bounds(point) { None } else { Some(map_idx(point.x, point.y)) }
     }

@@ -1,5 +1,6 @@
 mod map;
 mod player;
+mod map_builder;
 
 mod prelude {
     pub use bracket_lib::prelude::*;
@@ -7,6 +8,7 @@ mod prelude {
     pub const SCREEN_HEIGHT: i32 = 50;
     pub use crate::map::*;
     pub use crate::player::*;
+    pub use crate::map_builder::*;
 }
 
 use prelude::*;
@@ -21,10 +23,19 @@ struct State {
 
 impl State {
     fn new() -> Self {
+        // use MapBuilder to generate a new dungeon
+        let mut rng = RandomNumberGenerator::new();
+        let map_builder = MapBuilder::new(&mut rng);
+
+        // use map and player to create map and player
         Self {
-            map: Map::new(),
+            /* version 1, map and player is empty with `.` and `@`
+              map: Map::new(),
             // place player in the center of the map
-            player: Player::new(Point::new(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)),
+            player: Player::new(Point::new(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))*/
+            /* version 2: create map and build use map_builder */
+            map: map_builder.map,
+            player: Player::new(map_builder.player_start),
         }
     }
 }
