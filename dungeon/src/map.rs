@@ -33,21 +33,39 @@ impl Map {
         Self { tiles: vec!(TileType::Floor; NUM_TILES) }
     }
 
-    /* Render the map purposes to make the map able to draw itself to the screen */
-    pub fn render(&self, ctx: &mut BTerm) {
+    /* Render the map purposes to make the map able to draw itself to the screen 
+       add camera into the render
+    */
+    pub fn render(&self, ctx: &mut BTerm, camera: &Camera) {
+        // this tells the library to render the first console layer, the base map
+        ctx.set_active_console(0);
         // iterating y first is faster due to memory cache usage
-        for y in 0..SCREEN_HEIGHT {
-            for x in 0..SCREEN_WIDTH {
-                let idx = map_idx(x, y);
-                // determine tile type
-                match self.tiles[idx] {
-                    TileType::Floor => {
-                        /* Call set to render each map tile. Floor appear as `.` in yellow */
-                        ctx.set(x, y, YELLOW, BLACK, to_cp437('.'));
-                    }
-                    TileType::Wall => {
-                        // wall as `#` in green
-                        ctx.set(x, y, GREEN, BLACK, to_cp437('#'));
+        for y in camera.top_y..camera.bottom_y {
+            for x in camera.left_x..camera.right_x {
+                if self.in_bounds(Point::new(x, y)) {
+                    let idx = map_idx(x, y);
+                    // determine tile type
+                    match self.tiles[idx] {
+                        TileType::Floor => {
+                            /* Call set to render each map tile. Floor appear as `.` in yellow */
+                            ctx.set(
+                                x - camera.left_x,
+                                y - camera.top_y,
+                                WHITE,
+                                BLACK,
+                                to_cp437('.')
+                            );
+                        }
+                        TileType::Wall => {
+                            // wall as `#` in green
+                            ctx.set(
+                                x - camera.left_x,
+                                y - camera.top_y,
+                                WHITE,
+                                BLACK,
+                                to_cp437('#')
+                            );
+                        }
                     }
                 }
             }

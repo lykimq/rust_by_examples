@@ -1,0 +1,202 @@
+###############################################
+OpenGameArt.org automatically generated credits file notice:
+
+THIS FILE IS FOR INFORMATIONAL PURPOSES ONLY.  NO WARRANTY OF ANY KIND IS EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL OPENGAMEART.ORG BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE USE OF THIS FILE OR THE INFORMATION IN IT.
+
+In plain English:  This credits file is automatically generated to the best of our ability, but it remains YOUR RESPONSIBILITY as a game developer to ensure that the art you use is attributed properly.  That is, we can't be held liable even if all of the information in this file is completely wrong.   In addition, some of the art listed in this file may have SPECIAL ATTRIBUTION INSTRUCTIONS that ask that you credit the artist in a particular way, rather than a verbatim copyright notice.  In those cases, you will probably need to hand-edit this file to comply with their instructions.  In some older art, attribution instructions may be included in the art description itself.  Please check the art page to be sure.
+
+We recommend that you delete this notice when you're sure the information here is correct and the attribution instructions are properly followed.  If you aren't the game developer and you're seeing this notice here in the credits, it probably means that the developer hasn't properly verified the attribution information contained herein even though it said they were supposed to do it right on the page where they downloaded this file.  
+###############################################
+
+Title:
+    FANTASY-parchment-set
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/fantasy-parchment-set
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * game_icons_parchment_set.png
+    * letter.png
+    * letter_open.png
+    * map.png
+    * parchment.png
+    * parchment2.png
+
+----------------------------------------
+
+Title:
+    FANTASY-crystal-set
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/fantasy-crystal-set
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * game_icons_crystal_set.png
+    * crystal green.png
+    * crystal blue.png
+    * crystal red.png
+    * crystal violet.png
+    * crystal yellow.png
+
+----------------------------------------
+
+Title:
+    FANTASY-coin-set
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/fantasy-coin-set
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * game_icons_coin_set.png
+    * chest2.png
+    * chest.png
+    * bag.png
+    * coins.png
+    * coin.png
+
+----------------------------------------
+
+Title:
+    FANTASY-potion-set
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/fantasy-potion-set
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * potion-blue.png
+    * potion-green.png
+    * potion-yellow.png
+    * potion-red.png
+    * potion-violet.png
+
+----------------------------------------
+
+Title:
+    FANTASY-magic-set
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/fantasy-magic-set
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * bag.png
+    * magic_book.png
+    * book.png
+    * hat.png
+    * herbal.png
+    * parchment.png
+    * pot.png
+    * potion.png
+    * runestones.png
+
+----------------------------------------
+
+Title:
+    FANTASY-sword-set
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/fantasy-sword-set
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * all_swords.png
+    * fire_sword.png
+    * ice_sword.png
+    * lightning_sword.png
+    * sword.png
+    * rusty sword.png
+    * dagger.png
+
+----------------------------------------
+
+Title:
+    FANTASY-axe-set
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/fantasy-axe-set
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * axe set.png
+    * normal axe.png
+    * double axe.png
+    * bone axe.png
+
+----------------------------------------
+
+Title:
+    simple map tiles
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/simple-map-tiles
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * example_map.png
+    * map_pergament.png
+    * map_tiles.png
+
+----------------------------------------
+
+Title:
+    Resource Pack 1
+
+Author:
+    MELLE
+
+URL:
+    https://opengameart.org/content/resource-pack-1
+
+License(s):
+    * CC0 ( http://creativecommons.org/publicdomain/zero/1.0/legalcode )
+
+File(s):
+    * resource_pack_1.png
+
+----------------------------------------
+
+

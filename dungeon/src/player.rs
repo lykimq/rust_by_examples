@@ -11,15 +11,30 @@ impl Player {
         Self { position }
     }
 
-    // A render function as in map, to draw player by itself
-    pub fn render(&self, ctx: &mut BTerm) {
+    /* A render function as in map, to draw player by itself.
+       Add camera on render for player
+    */
+    pub fn render(&self, ctx: &mut BTerm, camera: &Camera) {
+        /* This is specifies that you want the second layer for the player 
+            0: for the base case, map
+            1: for the player
+        */
+        ctx.set_active_console(1);
         /* calculate the screen position of the player
            and use set to draw `@` symbol at that screen location */
-        ctx.set(self.position.x, self.position.y, WHITE, BLACK, to_cp437('@'))
+        ctx.set(
+            self.position.x - camera.left_x,
+            self.position.y - camera.top_y,
+            WHITE,
+            BLACK,
+            to_cp437('@')
+        )
     }
 
-    /* move player according to the keyboard command from the user */
-    pub fn update(&mut self, ctx: &mut BTerm, map: &Map) {
+    /* move player according to the keyboard command from the user,
+      add camera into player update
+     */
+    pub fn update(&mut self, ctx: &mut BTerm, map: &Map, camera: &mut Camera) {
         if let Some(key) = ctx.key {
             // delta store the key pressed by user
             let delta = match key {
@@ -34,6 +49,8 @@ impl Player {
             let new_position = self.position + delta;
             if map.can_enter_tile(new_position) {
                 self.position = new_position;
+                // add camera for player when he moves
+                camera.on_player_move(new_position);
             }
         }
     }
