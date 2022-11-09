@@ -1,3 +1,4 @@
+use std::{ usize };
 use crate::prelude::*;
 // tile: tam gach
 const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_HEIGHT) as usize;
