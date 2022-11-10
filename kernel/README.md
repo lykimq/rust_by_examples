@@ -50,3 +50,36 @@ cargo new noop
 cargo build --target wasm32-unknown-unknown
 ```
 
+after successed build, the `noop.wasm` is stored at:
+```
+../kernel/noop/target/wasm32-unknown-unknown/noop.wasm
+```
+
+#### Test the wasm kernel
+
+Now we have a valid kernel `noop.wasm` we can use the `octez-wasm-repl` tool to test it. This tool helps to test the kernels during its development, without replying on starting a rollup on a test network.
+
+
+```
+  octez-wasm-repl ${WASM_FILE} --inputs ${JSON_INPUTS} --rollup ${ROLLUP_ADDRESS}
+```
+- It takes a `.wasm` file or `.wat`.
+- This tool will parses and typechecks the kernel before giving it the PVM.
+- It can take a file containing inputs json,
+A valid `JSON_INPUTS` may look like:
+```
+[
+  { "payload" : { "int" : "0" },
+   "sender" : "KT1ThEdxfUcWUwqsdergy3QnbCWGHSUHeHJq",
+   "source" : "tz1RjtZUVeLhADFHDL8UwDZA6vjWWhojpu5w",
+   "destination" : "scr1HLXM32GacPNDrhHDLAssZG88eWqCUbyLF"
+  },
+  { "payload" : { "prim" : "False" },
+   "sender" : "KT1ThEdxfUcWUwqsdergy3QnbCWGHSUHeHJq",
+   "source" : "tz1RjtZUVeLhADFHDL8UwDZA6vjWWhojpu5w"
+  }
+]
+```
+- and a rollup address. 
+
+noticed that the `payload` can change directly to Micheline instead of its JSON representation.
