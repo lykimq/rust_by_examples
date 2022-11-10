@@ -68,14 +68,31 @@ impl GameState for State {
 
 /* Main function of dungeon */
 fn main() -> BError {
-    /* old graphics
-    let context = BTermBuilder::simple80x50()
+    /* old graphics*/
+    /*let context = BTermBuilder::simple80x50()
         .with_title("Dungeon Crawler")
         /* fps_cap: automatically tracks game speed,
            and tell OS that it can rest in between frames. */
         .with_fps_cap(30.0)
         .build()?;
     */
+
+    /* work
+    let context = BTermBuilder::simple80x50()
+        .with_title("Dungeon Crawler")
+        /* fps_cap: automatically tracks game speed,
+           and tell OS that it can rest in between frames. */
+        .with_fps_cap(30.0)
+        //.with_dimensions(DISPLAY_WIDTH, DISPLAY_HEIGHT)
+        //.with_tile_dimensions(32, 32)
+        .with_resource_path("resources/")
+        .with_font("dungeonfont.png", 16, 16)
+        //.with_font("terminal8x8.png", 8, 8)
+        //.with_simple_console(DISPLAY_WIDTH, DISPLAY_HEIGHT, "dungeonfont.png")
+        .with_simple_console(DISPLAY_WIDTH, DISPLAY_HEIGHT, "dungeonfont.png")
+        .with_simple_console_no_bg(DISPLAY_WIDTH, DISPLAY_HEIGHT, "dungeonfont.png")
+        .build()?;
+        */
 
     /* Use a new graphics layers 
       - new(): to create a generic terminal and specify attributes directly
@@ -93,14 +110,16 @@ fn main() -> BError {
       We do not rendering the whole map at once and to limit the viewpoint, this is
       why we need a camera.
     */
+
+    /* run with cargo run --release */
     let context = BTermBuilder::new()
         .with_title("Dungeon Crawler")
         .with_fps_cap(30.0)
-        .with_dimensions(DISPLAY_WIDTH, DISPLAY_HEIGHT)
-        .with_tile_dimensions(32, 32)
+        //.with_dimensions(DISPLAY_WIDTH, DISPLAY_HEIGHT)
+        //.with_tile_dimensions(32, 32)
         .with_resource_path("resources/")
         // Todo where is this file??
-        .with_font("dungeonfont.png", 32, 32)
+        .with_font("dungeonfont.png", 16, 16)
         .with_simple_console(DISPLAY_WIDTH, DISPLAY_HEIGHT, "dungeonfont.png")
         .with_simple_console_no_bg(DISPLAY_WIDTH, DISPLAY_HEIGHT, "dungeonfont.png")
         .build()?;
