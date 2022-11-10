@@ -1,0 +1,12 @@
+/home/quyen/rust_by_examples/kernel/transactions/target/wasm32-unknown-unknown/debug/deps/arrayvec-16d16491b549405f.rmeta: /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/lib.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/maybe_uninit.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array_string.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/char.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/errors.rs
+
+/home/quyen/rust_by_examples/kernel/transactions/target/wasm32-unknown-unknown/debug/deps/libarrayvec-16d16491b549405f.rlib: /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/lib.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/maybe_uninit.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array_string.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/char.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/errors.rs
+
+/home/quyen/rust_by_examples/kernel/transactions/target/wasm32-unknown-unknown/debug/deps/arrayvec-16d16491b549405f.d: /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/lib.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/maybe_uninit.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array_string.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/char.rs /home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/errors.rs
+
+/home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/lib.rs:
+/home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/maybe_uninit.rs:
+/home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array.rs:
+/home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/array_string.rs:
+/home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/char.rs:
+/home/quyen/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.2/src/errors.rs:

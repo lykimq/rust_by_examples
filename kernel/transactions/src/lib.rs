@@ -1,6 +1,9 @@
 /* A copy of the transaction kernel but simplify
 https://gitlab.com/tezos/kernel/-/blob/main/kernel_core/src/lib.rs 
 */
+#![deny(missing_docs)]
+#![deny(rustdoc::all)]
+#![forbid(unsafe_code)]
 
 extern crate alloc;
 
@@ -10,12 +13,16 @@ extern crate alloc;
 pub mod memory;
 
 use host::input::Input;
-use host::rollup_core::{ RawRollupCore, MAX_INPUT_MASSAGE_SIZE, MAX_INPUT_SLOT_DATA_CHUNK_SIZE };
+use host::rollup_core::{ RawRollupCore, MAX_INPUT_MESSAGE_SIZE, MAX_INPUT_SLOT_DATA_CHUNK_SIZE };
+
+use debug::debug_msg;
+
+use thiserror::Error;
 
 use crate::memory::Memory;
 
-const MAX_READ_INPUT_SIZE: usize = if MAX_INPUT_MASSAGE_SIZE > MAX_INPUT_SLOT_DATA_CHUNK_SIZE {
-    MAX_INPUT_MASSAGE_SIZE
+const MAX_READ_INPUT_SIZE: usize = if MAX_INPUT_MESSAGE_SIZE > MAX_INPUT_SLOT_DATA_CHUNK_SIZE {
+    MAX_INPUT_MESSAGE_SIZE
 } else {
     MAX_INPUT_SLOT_DATA_CHUNK_SIZE
 };
@@ -27,11 +34,16 @@ pub fn transactions_run<Host: RawRollupCore>(host: &mut Host) {
     /* if there is some input, use host.read_input to match 
        what kinds of input it is: message or a slot
      */
-    if let Some(input) = host.read_input(MAX_READ_INPUT_SIZE) {
-        match input {
-            Input::Message(message) => todo!("handle message"),
-            Input::Slot(_message) => todo!("handle slot message"),
+    match host.read_input(MAX_READ_INPUT_SIZE) {
+        Some(Input::Message(message)) => {
+            debug_msg!(Host, "Processing MessageData {} at level {}", message.id, message.level);
+
+            if let Err(err) = process_header_payload(host, &mut memory, message.as_ref()) {
+                debug_msg!(Host, "Error processing header payload {}", err);
+            }
         }
+        Some(Input::Slot(_message)) => todo!("handle slot message"),
+        None => {}
     }
 }
 
