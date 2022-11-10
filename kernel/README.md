@@ -55,7 +55,21 @@ after successed build, the `noop.wasm` is stored at:
 ../kernel/noop/target/wasm32-unknown-unknown/noop.wasm
 ```
 
-#### Test the wasm kernel
+#### Wasm kernel that use the kernel SDK 
+
+- Create a transactions kernel 
+
+```
+cargo new transactions
+```
+
+- Build
+```
+cargo build --target wasm32-unknown-unknown
+```
+
+
+#### Test the wasm kernel - WIP
 
 Now we have a valid kernel `noop.wasm` we can use the `octez-wasm-repl` tool to test it. This tool helps to test the kernels during its development, without replying on starting a rollup on a test network.
 
@@ -65,7 +79,7 @@ This tool is WIP at: https://gitlab.com/tezos/tezos/-/merge_requests/6766
 ```
   octez-wasm-repl ${WASM_FILE} --inputs ${JSON_INPUTS} --rollup ${ROLLUP_ADDRESS}
 ```
-- It takes a `.wasm` file or `.wat`.
+- It takes a `.wasm` file or `.wast`.
 - This tool will parses and typechecks the kernel before giving it the PVM.
 - It can take a file containing inputs json. A valid `JSON_INPUTS` may look like:
 ```
