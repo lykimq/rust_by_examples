@@ -1,6 +1,6 @@
 # Write a kernel to compile with WASM PVM in SCORU
 
-## Example
+## Examples
 
 ### Kernel - wasm program
 
@@ -65,8 +65,7 @@ Now we have a valid kernel `noop.wasm` we can use the `octez-wasm-repl` tool to 
 ```
 - It takes a `.wasm` file or `.wat`.
 - This tool will parses and typechecks the kernel before giving it the PVM.
-- It can take a file containing inputs json,
-A valid `JSON_INPUTS` may look like:
+- It can take a file containing inputs json. A valid `JSON_INPUTS` may look like:
 ```
 [
   { "payload" : { "int" : "0" },
@@ -80,6 +79,5 @@ A valid `JSON_INPUTS` may look like:
   }
 ]
 ```
-- and a rollup address. 
-
 noticed that the `payload` can change directly to Micheline instead of its JSON representation.
+- and a rollup address. 
