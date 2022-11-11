@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/quyen/rust_by_examples/kernel/transactions/target/wasm32-unknown-unknown/debug/build/typenum-be0a591a557d9086/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/home/quyen/rust_by_examples/kernel/transactions/target/wasm32-unknown-unknown/debug/build/typenum-be0a591a557d9086/out/op.rs
