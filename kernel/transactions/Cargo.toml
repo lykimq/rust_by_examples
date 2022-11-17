@@ -10,16 +10,26 @@ edition = "2021"
 
 [dependencies]
 # use kernel, host from a downloaded kernel folder
-kernel = { path = "/home/quyen/kernel/kernel_entry" }
+#kernel = { path = "/home/quyen/kernel/kernel_entry" }
+kernel = {path = "../kernel_entry" }
 
 # copy from the kernel sdk
-host = { path = "/home/quyen/kernel/host", default-features = false  }
+# host = { path = "/home/quyen/kernel/host", default-features = false  }
+host = {path = "../host", default_features = false }
 
 # use debug
-debug = {path = "/home/quyen/kernel/debug"}
+#debug = {path = "/home/quyen/kernel/debug"}
+debug = {path = "../debug"}
+
+# mock_runtime = {path = "/home/quyen/kernel/mock_runtime"}
+mock_runtime = {path = "../mock_runtime"}
 
 # use crypto
 crypto = { git = "https://github.com/emturner/tezedge.git", branch = "master", default-features = false, features = ["no_sodium"] }
+
+# TODO: https://gitlab.com/tezos/tezos/-/issues/3084 - upstream the changes on this fork
+tezos_encoding = { git = "https://github.com/emturner/tezedge.git", branch = "master" }
+tezos_encoding_derive = { git = "https://github.com/emturner/tezedge.git", branch = "master" }
 
 # use serde and serde_json
 serde = { version = "1.0" } 
@@ -32,6 +42,10 @@ num-bigint = "0.3"
 num-traits = "0.2.8"
 
 rand = { version = "0.8", optional = true }
+
+[dev_dependencies]
+# mock_runtime = { path = "/home/quyen/kernel/mock_runtime"}
+mock_runtime = {path = "../mock_runtime"}
 
 [features]
  default = ["tx-kernel"]

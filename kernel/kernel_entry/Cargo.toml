@@ -1,0 +1,23 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+host = { path = "../host" }
+debug = { path = "../debug" }
+panic_handler = { path = "../panic_handler", default_features = false }
+mock_runtime = { path = "../mock_runtime" }
+
+dlmalloc = { version = "0.2.3", features = ["global"], optional = true}
+wee_alloc = { version = "0.4.5", optional = true }
+
+[features]
+default = ["dlmalloc", "panic-hook-debug", "panic-hook-abort"]
+panic-hook = []
+panic-hook-debug = ["panic-hook", "panic_handler/debug-panic"]
+panic-hook-abort = ["panic-hook", "panic_handler/abort-on-panic"]
+testing = ["panic_handler/testing"]

@@ -7,10 +7,13 @@ use serde::{ Deserialize, Serialize };
 use alloc::collections::BTreeMap;
 use crypto::hash::Layer2Tz4Hash;
 
+use thiserror::Error;
+
 /* need load_memory to use in lib.rs */
 
 const MEMORY_PATH: RefPath = RefPath::assert_from(b"/tx/memory/");
 
+#[derive(Default, Debug, Serialize, Deserialize)]
 /* Memory contents: ticket defintions and the account balance sheet */
 pub struct Memory {
     // add only account
@@ -65,4 +68,22 @@ pub enum AccountError {
     #[error("Could not add new account due to previous account at address {0}")] AddressOccupied(
         Layer2Tz4Hash,
     ),
+}
+
+/* Account only content counter */
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct Account {
+    counter: i64,
+}
+
+impl Account {
+    // Increments the operation counter of the account
+    pub fn increment_counter(&mut self) {
+        self.counter += 1;
+    }
+
+    // The current value of the account's operation counter
+    pub fn counter(&self) -> i64 {
+        self.counter
+    }
 }

@@ -57,7 +57,9 @@ after successed build, the `noop.wasm` is stored at:
 
 #### Wasm kernel that use the kernel SDK 
 
-- Create a transactions kernel 
+- Write another dummy kernel where it is a copy of tx-kernel, and try to connect this kernel with the Host function (the kernel SDK). 
+
+Create a transactions kernel:
 
 ```
 cargo new transactions
@@ -68,32 +70,22 @@ cargo new transactions
 cargo build --target wasm32-unknown-unknown
 ```
 
+- Connect kernel to Kernel SDK
+In the `Cargo.toml` declare
+
+```
+...
+
+[lib] 
+ crate-type = ["cdylib", "rlib"]
+
+```
+
+
+
 
 #### Test the wasm kernel - WIP
 
 Now we have a valid kernel `noop.wasm` we can use the `octez-wasm-repl` tool to test it. This tool helps to test the kernels during its development, without replying on starting a rollup on a test network.
 
-This tool is WIP at: https://gitlab.com/tezos/tezos/-/merge_requests/6766
-
-
-```
-  octez-wasm-repl ${WASM_FILE} --inputs ${JSON_INPUTS} --rollup ${ROLLUP_ADDRESS}
-```
-- It takes a `.wasm` file or `.wast`.
-- This tool will parses and typechecks the kernel before giving it the PVM.
-- It can take a file containing inputs json. A valid `JSON_INPUTS` may look like:
-```
-[
-  { "payload" : { "int" : "0" },
-   "sender" : "KT1ThEdxfUcWUwqsdergy3QnbCWGHSUHeHJq",
-   "source" : "tz1RjtZUVeLhADFHDL8UwDZA6vjWWhojpu5w",
-   "destination" : "scr1HLXM32GacPNDrhHDLAssZG88eWqCUbyLF"
-  },
-  { "payload" : { "prim" : "False" },
-   "sender" : "KT1ThEdxfUcWUwqsdergy3QnbCWGHSUHeHJq",
-   "source" : "tz1RjtZUVeLhADFHDL8UwDZA6vjWWhojpu5w"
-  }
-]
-```
-noticed that the `payload` can change directly to Micheline instead of its JSON representation.
-- and a rollup address. 
+This document can be found at: https://tezos.gitlab.io/alpha/smart_rollups.html, at section "Testing your kernel".

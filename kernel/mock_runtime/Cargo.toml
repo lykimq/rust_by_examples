@@ -1,0 +1,11 @@
+[package]
+name = "mock_runtime"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+host = { path = "../host" }
+crypto = { git = "https://github.com/emturner/tezedge.git", branch = "master", default-features = false, features = ["no_sodium"] }
+
+[features]
+default = []

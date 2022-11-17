@@ -11,6 +11,8 @@ extern crate alloc;
    https://gitlab.com/tezos/kernel/-/blob/main/kernel_core/src/memory.rs
 */
 pub mod memory;
+pub mod encoding;
+pub mod inbox;
 
 use host::input::Input;
 use host::rollup_core::{ RawRollupCore, MAX_INPUT_MESSAGE_SIZE, MAX_INPUT_SLOT_DATA_CHUNK_SIZE };
@@ -19,6 +21,7 @@ use debug::debug_msg;
 
 use thiserror::Error;
 
+use crate::inbox::{ InboxMessage, InternalInboxMessage };
 use crate::memory::Memory;
 
 const MAX_READ_INPUT_SIZE: usize = if MAX_INPUT_MESSAGE_SIZE > MAX_INPUT_SLOT_DATA_CHUNK_SIZE {
@@ -44,6 +47,30 @@ pub fn transactions_run<Host: RawRollupCore>(host: &mut Host) {
         }
         Some(Input::Slot(_message)) => todo!("handle slot message"),
         None => {}
+    }
+}
+
+/* Define process_header_payload in transactions_run */
+
+fn process_header_payload<'a, Host: RawRollupCore>(
+    host: &mut Host,
+    memory: &mut Memory,
+    payload: &'a [u8]
+) -> Result<(), TransactionError<'a>> {
+    let (remaining, message) = InboxMessage::parse(payload).map_err(
+        TransactionError::MalformedInboxMessage
+    )?;
+
+    match message {
+        InboxMessage::Internal(InternalInboxMessage { payload, .. }) => {
+            let InboxDeposit { destination, ticket } = payload.try_into()?;
+
+            deposit_ticket::<Host>(memory, destination, ticket)?;
+
+            // Internal inbox message - not batched
+            debug_assert!(remaining.is_empty());
+            Ok(())
+        }
     }
 }
 

@@ -1,0 +1,15 @@
+[package]
+name = "panic_handler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+host = { path = "../host" }
+debug = { path = "../debug" }
+mock_runtime = { path = "../mock_runtime" }
+
+[features]
+default = ["abort-on-panic", "debug-panic"]
+testing = ["debug-panic"]
+abort-on-panic = []
+debug-panic = []
