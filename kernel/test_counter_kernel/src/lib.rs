@@ -1,5 +1,9 @@
 #![cfg(feature = "test_counter_kernel")]
 
+// Needed when using the debug_msg macro
+#[cfg(not(feature = "no-alloc"))]
+extern crate alloc;
+
 use debug::debug_msg;
 use host::input::{ Input, MessageData, SlotData };
 use host::rollup_core::RawRollupCore;
