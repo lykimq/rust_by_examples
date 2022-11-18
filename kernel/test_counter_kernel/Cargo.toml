@@ -1,5 +1,5 @@
 [package]
-name = "test_tx_kernel"
+name = "test_counter_kernel"
 version = "0.1.0"
 edition = "2021"
 
@@ -15,5 +15,5 @@ kernel = { path = "../kernel_entry_simpl", default-features = false}
 mock_runtime = { path = "../mock_runtime" , default-features = false}
 
 [features]
-test-tx-kernel = []
-testing=["test-tx-kernel"]
+test-counter-kernel = []
+read-input = ["test-counter-kernel"]

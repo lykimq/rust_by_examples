@@ -465,7 +465,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "test_tx_kernel"
+name = "test_counter_kernel"
 version = "0.1.0"
 dependencies = [
  "debug",
