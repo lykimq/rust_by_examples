@@ -11,7 +11,7 @@ use host::input::{ Input, MessageData, SlotData };
 use host::rollup_core::RawRollupCore;
 use host::runtime::Runtime;
 use host::wasm_host::WasmHost;
-use kernel::kernel_entry;
+use kernel::kernel_entry_simpl;
 
 pub const READ_BUFFER_SIZE: usize = 4096;
 
@@ -46,4 +46,5 @@ pub fn test_kernel_run<Host: RawRollupCore>(host: &mut Host) {
 }
 
 #[cfg(feature = "test_tx_kernel")]
-kernel_entry!(test_kernel_run);
+// This is called from the kernel_entry
+kernel_entry_simpl!(test_kernel_run);
