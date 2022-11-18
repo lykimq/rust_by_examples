@@ -1,4 +1,5 @@
 use crate::prelude::*;
+
 // it is maximum number of rooms in a dungeon
 const NUM_ROOMS: usize = 20;
 

@@ -1,10 +1,9 @@
 use std::{ usize };
 use crate::prelude::*;
-// tile: tam gach
+
 const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_HEIGHT) as usize;
 
 #[allow(dead_code)]
-// Represent Tiles
 #[derive(Copy, Clone, PartialEq)]
 /* Tiles are limited to a pre-defined set of tiles type, use enum
  because of that */
@@ -13,7 +12,6 @@ pub enum TileType {
     Floor,
 }
 
-/* Define a struct of Map, containing a vector of tiles*/
 pub struct Map {
     pub tiles: Vec<TileType>,
 }

@@ -4,7 +4,6 @@ pub struct Player {
     pub position: Point,
 }
 
-/* constructor of player */
 impl Player {
     // Create new player at a position
     pub fn new(position: Point) -> Self {
