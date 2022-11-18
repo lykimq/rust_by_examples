@@ -2,10 +2,9 @@
 
 use host::path::RefPath;
 use host::rollup_core::RawRollupCore;
-use serde::{ Deserialize, Serialize };
-
 use alloc::collections::BTreeMap;
 use crypto::hash::Layer2Tz4Hash;
+use crate::{ encoding::{ string_ticket::{ StringTicketHash } } };
 
 use thiserror::Error;
 
@@ -13,7 +12,7 @@ use thiserror::Error;
 
 const MEMORY_PATH: RefPath = RefPath::assert_from(b"/tx/memory/");
 
-#[derive(Default, Debug, Serialize, Deserialize)]
+#[derive(Default, Debug)]
 /* Memory contents: ticket defintions and the account balance sheet */
 pub struct Memory {
     // add only account
@@ -38,7 +37,7 @@ impl Memory {
 }
 
 // Accounts balance sheet
-#[derive(Debug, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct Accounts(BTreeMap<Layer2Tz4Hash, Account>);
 
 impl Accounts {
@@ -71,8 +70,9 @@ pub enum AccountError {
 }
 
 /* Account only content counter */
-#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct Account {
+    balance: BTreeMap<StringTicketHash, u64>,
     counter: i64,
 }
 
@@ -85,5 +85,18 @@ impl Account {
     // The current value of the account's operation counter
     pub fn counter(&self) -> i64 {
         self.counter
+    }
+
+    // Add ticket
+
+    pub fn add_ticket(&mut self, hash: StringTicketHash, amount: u64) -> Result<(), AccountError> {
+        if let Some(ticket_balance) = self.balance.get_mut(&hash) {
+            *ticket_balance = ticket_balance
+                .checked_add(amount)
+                .ok_or(AccountError::BalanceOverflow(*ticket_balance, amount))?;
+        } else {
+            self.balance.insert(hash, amount);
+        }
+        Ok(())
     }
 }

@@ -2,7 +2,7 @@ use nom::combinator::map;
 use nom::bytes::complete::tag;
 use nom::sequence::preceded;
 use tezos_encoding::nom::{ NomReader, NomResult };
-
+use tezos_encoding::enc::{ self, BinResult, BinWriter };
 use super::public_key_hash::PublicKeyHash;
 
 // Create contract
@@ -35,5 +35,18 @@ impl Contract {
 impl NomReader for Contract {
     fn nom_read(input: &[u8]) -> NomResult<Self> {
         map(preceded(tag([0]), PublicKeyHash::nom_read), Contract::Implicit)(input)
+    }
+}
+
+// implement BinWrite for Contract
+
+impl BinWriter for Contract {
+    fn bin_write(&self, output: &mut Vec<u8>) -> BinResult {
+        match self {
+            Self::Implicit(implicit) => {
+                enc::put_byte(&0, output);
+                BinWriter::bin_write(implicit, output)
+            }
+        }
     }
 }

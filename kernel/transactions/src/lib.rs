@@ -13,15 +13,17 @@ extern crate alloc;
 pub mod memory;
 pub mod encoding;
 pub mod inbox;
+pub mod deposit;
 
 use host::input::Input;
 use host::rollup_core::{ RawRollupCore, MAX_INPUT_MESSAGE_SIZE, MAX_INPUT_SLOT_DATA_CHUNK_SIZE };
 
+use deposit::{ deposit_ticket };
 use debug::debug_msg;
-
 use thiserror::Error;
+use tezos_encoding::nom::error::DecodeError;
 
-use crate::inbox::{ InboxMessage, InternalInboxMessage };
+use crate::inbox::{ InboxDeposit, InboxMessage, InternalInboxMessage };
 use crate::memory::Memory;
 
 const MAX_READ_INPUT_SIZE: usize = if MAX_INPUT_MESSAGE_SIZE > MAX_INPUT_SLOT_DATA_CHUNK_SIZE {
@@ -48,6 +50,14 @@ pub fn transactions_run<Host: RawRollupCore>(host: &mut Host) {
         Some(Input::Slot(_message)) => todo!("handle slot message"),
         None => {}
     }
+}
+
+/* Transaction error */
+#[derive(Error, Debug)]
+enum TransactionError<'a> {
+    #[error("unable to parse header inbox message {0}")] MalformedInboxMessage(
+        nom::Err<DecodeError<&'a [u8]>>,
+    ),
 }
 
 /* Define process_header_payload in transactions_run */

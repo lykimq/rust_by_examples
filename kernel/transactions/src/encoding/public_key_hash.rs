@@ -1,8 +1,9 @@
 use crypto::hash::{ ContractTz1Hash, Hash, HashTrait };
 use tezos_encoding::encoding::HasEncoding;
 use tezos_encoding::nom::NomReader;
+use tezos_encoding::enc::BinWriter;
 
-#[derive(Debug, Clone, PartialEq, Eq, HasEncoding, NomReader)]
+#[derive(Debug, Clone, PartialEq, Eq, HasEncoding, NomReader, BinWriter)]
 pub enum PublicKeyHash {
     //tz1-contract
     Ed25519(ContractTz1Hash),
