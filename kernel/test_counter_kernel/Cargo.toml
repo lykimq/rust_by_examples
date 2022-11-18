@@ -11,7 +11,7 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 host = { path = "../host" }
 debug = { path = "../debug" }
-kernel = { path = "../kernel_entry_simpl", default-features = false}
+kernel = { path = "../kernel_entry", default-features = false}
 mock_runtime = { path = "../mock_runtime" , default-features = false}
 
 [features]

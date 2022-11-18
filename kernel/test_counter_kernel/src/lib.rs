@@ -65,4 +65,4 @@ pub fn test_counter_run<Host: RawRollupCore>(host: &mut Host, counter: &mut Test
 }
 
 #[cfg(feature = "test_counter_kernel")]
-kernel_entry_simpl!(test_counter_run, TestCounter);
+kernel_entry!(test_counter_run, TestCounter);
