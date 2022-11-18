@@ -15,5 +15,11 @@ kernel = { path = "../kernel_entry_simpl", default-features = false}
 mock_runtime = { path = "../mock_runtime" , default-features = false}
 
 [features]
+default = []
 test-counter-kernel = []
+non = ["test-counter-kernel"]
+abort = ["test-counter-kernel"]
+write-debug = ["test-counter-kernel"]
 read-input = ["test-counter-kernel"]
+write-output = ["test-counter-kernel"]
+all = ["read-input", "write-output", "test-counter-kernel"]

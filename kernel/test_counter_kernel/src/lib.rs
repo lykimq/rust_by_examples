@@ -14,13 +14,13 @@ use kernel::kernel_entry_simpl;
 pub const READ_BUFFER_SIZE: usize = 4096;
 
 pub struct TestCounter {
-    #[cfg(feature = "no-alloc")]
+    //#[cfg(feature = "no-alloc")]
     counter: u32,
 }
 
 impl Default for TestCounter {
     fn default() -> Self {
-        #[cfg(feature = "no-alloc")]
+        //#[cfg(feature = "no-alloc")]
         return Self { counter: 0 };
     }
 }
@@ -55,7 +55,7 @@ pub fn test_counter_run<Host: RawRollupCore>(host: &mut Host, counter: &mut Test
         }
     };
 
-    #[cfg(feature = "no-alloc")]
+    //#[cfg(feature = "no-alloc")]
     {
         counter.counter += 1;
     }
