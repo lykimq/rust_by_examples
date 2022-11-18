@@ -1,0 +1,19 @@
+[package]
+name = "test_tx_kernel"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+kernel = {path = "../kernel_entry", default-features = false}
+host = {path = "../host"}
+debug = {path = "../debug"}
+mock_runtime = {path = "../mock_runtime", default-features = false}
+
+[features]
+test-tx-kernel = []
+read-input=["test-tx-kernel"]
