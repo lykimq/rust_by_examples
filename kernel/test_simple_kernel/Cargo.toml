@@ -1,0 +1,20 @@
+[package]
+name = "test_simple_kernel"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# use the kernel_entry_simpl version
+kernel = {path = "../kernel_entry_simpl", default-features = false}
+host = {path = "../host"}
+debug = {path = "../debug"}
+mock_runtime = {path = "../mock_runtime", default-features = false}
+
+[features]
+test-simple-kernel = []
+read-input=["test-simple-kernel"]

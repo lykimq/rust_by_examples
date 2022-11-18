@@ -9,12 +9,11 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-# use the kernel_entry_simpl version
-kernel = {path = "../kernel_entry_simpl", default-features = false}
-host = {path = "../host"}
-debug = {path = "../debug"}
-mock_runtime = {path = "../mock_runtime", default-features = false}
+host = { path = "../host" }
+debug = { path = "../debug" }
+kernel = { path = "../kernel_entry_simpl", default-features = false}
+mock_runtime = { path = "../mock_runtime" , default-features = false}
 
 [features]
 test-tx-kernel = []
-read-input=["test-tx-kernel"]
+testing=["test-tx-kernel"]
