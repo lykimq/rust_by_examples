@@ -23,13 +23,18 @@ pub const READ_BUFFER_SIZE: usize = 4096;
 pub fn test_kernel_run<Host: RawRollupCore>(host: &mut Host) {
     #[cfg(feature = "read-input")]
     let output = {
-        match host.read_input(READ_BUFFER_SIZE) {
+        match
+            // Loads the oldest input still present in the inbox of
+            // the smart rollup in the transient memory of the WASM kernel.
+            host.read_input(READ_BUFFER_SIZE)
+        {
             // Read input from Slot
             Some(Input::Slot(data)) => {
                 #[cfg(feature = "write-debug")]
                 debug_msg!(Host, "{:?}", data.as_ref());
 
                 #[cfg(feature = "write-output")]
+                // Writes an in-memory buffer to the outbox of the smart rollup.
                 host.write_output(data.as_ref())
             }
             // Read input from Message
@@ -43,6 +48,9 @@ pub fn test_kernel_run<Host: RawRollupCore>(host: &mut Host) {
             None => (),
         }
     };
+
+    #[cfg(feature = "abort")]
+    std::process::abort()
 }
 
 #[cfg(feature = "test_tx_kernel")]
