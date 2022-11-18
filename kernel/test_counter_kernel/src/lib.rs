@@ -9,7 +9,7 @@ use host::input::{ Input, MessageData, SlotData };
 use host::rollup_core::RawRollupCore;
 use host::runtime::Runtime;
 use host::wasm_host::WasmHost;
-use kernel::kernel_entry_simpl;
+use kernel::kernel_entry;
 
 pub const READ_BUFFER_SIZE: usize = 4096;
 
