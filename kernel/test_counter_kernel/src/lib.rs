@@ -21,7 +21,7 @@ impl Default for TestCounter {
     }
 }
 
-/* Entrypoint of the `transactions` kernel */
+/* Entrypoint of the `counter` kernel */
 
 pub fn test_counter_run<Host: RawRollupCore>(host: &mut Host, counter: &mut TestCounter) {
     // Read input
@@ -61,4 +61,4 @@ pub fn test_counter_run<Host: RawRollupCore>(host: &mut Host, counter: &mut Test
 }
 
 #[cfg(feature = "test_counter_kernel")]
-kernel_entry_simpl!(test_kernel_run, TestCounter);
+kernel_entry_simpl!(test_counter_run, TestCounter);
