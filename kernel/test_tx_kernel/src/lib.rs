@@ -1,12 +1,6 @@
-#![allow(dead_code)]
-#![allow(unused_variables)]
-#![allow(unused_imports)]
-#![allow(unused_must_use)]
-
 #![cfg(feature = "test_tx_kernel")]
 
 // needed when using the debug_msg macro
-
 #[cfg(not(feature = "no-alloc"))]
 extern crate alloc;
 
