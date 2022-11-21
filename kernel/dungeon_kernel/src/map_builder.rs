@@ -1,4 +1,9 @@
-use crate::prelude::*;
+//use crate::prelude::*;
+use bracket_lib::terminal::Point;
+use crate::map::{ map_idx, TileType, Map };
+use bracket_lib::random::RandomNumberGenerator;
+use bracket_lib::terminal::Rect;
+use crate::prelude::{ SCREEN_HEIGHT, SCREEN_WIDTH };
 
 // it is maximum number of rooms in a dungeon
 const NUM_ROOMS: usize = 20;

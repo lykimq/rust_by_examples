@@ -1,4 +1,5 @@
-use crate::prelude::*;
+use bracket_lib::terminal::Point;
+use crate::prelude::{ DISPLAY_HEIGHT, DISPLAY_WIDTH };
 
 pub struct Camera {
     pub left_x: i32,

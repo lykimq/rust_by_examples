@@ -1,4 +1,6 @@
-use crate::prelude::*;
+use bracket_lib::terminal::{ Point, BTerm, to_cp437, BLACK, WHITE };
+use crate::map::Map;
+use crate::camera::Camera;
 
 pub struct Player {
     pub position: Point,

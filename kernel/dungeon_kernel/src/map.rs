@@ -1,5 +1,5 @@
-use std::{ usize };
-use crate::prelude::*;
+use crate::prelude::{ SCREEN_WIDTH, SCREEN_HEIGHT };
+use bracket_lib::terminal::{ Point, BLACK, WHITE };
 
 const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_HEIGHT) as usize;
 
