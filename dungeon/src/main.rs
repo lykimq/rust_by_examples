@@ -8,7 +8,9 @@ mod state;
 use prelude::*;
 
 /* Main function of dungeon */
+
 fn main() -> BError {
+    // TODO Btermbuilder add host
     let context = BTermBuilder::new()
         .with_title("Dungeon Crawler")
         .with_fps_cap(30.0)
@@ -21,5 +23,6 @@ fn main() -> BError {
         .with_simple_console_no_bg(DISPLAY_WIDTH, DISPLAY_HEIGHT, "dungeonfont.png")
         .build()?;
 
+    // TODO state add host
     main_loop(context, state::State::new())
 }

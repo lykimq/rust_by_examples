@@ -1,0 +1,16 @@
+[package]
+name = "dungeon_kernel"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bracket-lib = "~0.8.1"
+host = { path = "../host"}
+debug = { path = "../debug"}
+kernel = {path = "../kernel_entry"}
+mock_runtime = { path = "../mock_runtime" }
+
+[features]
+default = []
