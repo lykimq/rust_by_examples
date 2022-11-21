@@ -5,6 +5,10 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+
 [dependencies]
 bracket-lib = { git = "https://github.com/amethyst/bracket-lib" }
 host = { path = "../host"}
@@ -14,3 +18,8 @@ mock_runtime = { path = "../mock_runtime" }
 
 [features]
 default = []
+dungeon-kernel = []
+non = ["dungeon-kernel"]
+abort = ["dungeon-kernel"]
+read-input = ["dungeon-kernel"]
+all = ["read-input", "dungeon-kernel"]

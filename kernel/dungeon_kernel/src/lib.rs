@@ -1,4 +1,4 @@
-#![cfg(feature = "test_dungeon_kernel")]
+#![cfg(feature = "dungeon_kernel")]
 
 // Needed when using the debug_msg macro
 #[cfg(not(feature = "no-alloc"))]
@@ -42,7 +42,6 @@ const MAX_READ_INPUT_SIZE: usize = if MAX_INPUT_MESSAGE_SIZE > MAX_INPUT_SLOT_DA
 };
 
 /* Main function of dungeon plugin with host */
-
 pub fn dungeon_run<Host: RawRollupCore>(host: &mut Host) {
     #[cfg(feature = "read-input")]
     match host.read_input(MAX_READ_INPUT_SIZE) {
@@ -78,5 +77,5 @@ fn process_dungeon<Host: RawRollupCore>(_host: &mut Host) -> BError {
 }
 
 // plugin with kernel entry to call kernel_next()
-#[cfg(feature = "test_dungeon_kernel")]
+#[cfg(feature = "dungeon_kernel")]
 kernel_entry!(test_dungeon_run);
