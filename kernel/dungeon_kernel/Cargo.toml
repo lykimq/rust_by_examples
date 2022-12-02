@@ -11,10 +11,11 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 bracket-lib = { git = "https://github.com/amethyst/bracket-lib" }
-host = { path = "../host"}
-debug = { path = "../debug"}
-kernel = {path = "../kernel_entry"}
-mock_runtime = { path = "../mock_runtime" }
+#host = { path = "../host"}
+host = { git = "https://gitlab.com/tezos/kernel/" }
+debug = { git = "https://gitlab.com/tezos/kernel/" }
+kernel = {git = "https://gitlab.com/tezos/kernel/"}
+mock_runtime = { git = "https://gitlab.com/tezos/kernel/" }
 
 [features]
 default = []

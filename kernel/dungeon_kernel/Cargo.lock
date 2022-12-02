@@ -562,9 +562,9 @@ dependencies = [
 [[package]]
 name = "debug"
 version = "0.1.0"
+source = "git+https://gitlab.com/tezos/kernel/#a41c0c2613401119ae7cf8888a2e69e7b477523e"
 dependencies = [
  "host",
- "mock_runtime",
 ]
 
 [[package]]
@@ -918,6 +918,7 @@ dependencies = [
 [[package]]
 name = "host"
 version = "0.1.0"
+source = "git+https://gitlab.com/tezos/kernel/#a41c0c2613401119ae7cf8888a2e69e7b477523e"
 
 [[package]]
 name = "ident_case"
@@ -976,11 +977,11 @@ dependencies = [
 [[package]]
 name = "kernel"
 version = "0.1.0"
+source = "git+https://gitlab.com/tezos/kernel/#a41c0c2613401119ae7cf8888a2e69e7b477523e"
 dependencies = [
  "debug",
  "dlmalloc",
  "host",
- "mock_runtime",
  "panic_handler",
 ]
 
@@ -1157,6 +1158,7 @@ dependencies = [
 [[package]]
 name = "mock_runtime"
 version = "0.1.0"
+source = "git+https://gitlab.com/tezos/kernel/#a41c0c2613401119ae7cf8888a2e69e7b477523e"
 dependencies = [
  "crypto",
  "host",
@@ -1418,6 +1420,7 @@ dependencies = [
 [[package]]
 name = "panic_handler"
 version = "0.1.0"
+source = "git+https://gitlab.com/tezos/kernel/#a41c0c2613401119ae7cf8888a2e69e7b477523e"
 dependencies = [
  "debug",
  "host",
